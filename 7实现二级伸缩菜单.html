@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+		function toggle(span){
+			var ul=span.parentNode.querySelector("ul");
+			if (span.className=="open") {
+				span.className="closed";
+				ul.className="hide";
+			}else{
+				var openSpan=document.querySelectorAll(".tree .open")[0];
+				if (openSpan) {
+					openSpan.className="closed";
+					//ul.className="hide";
+					//openSpan.parentNode.querySelectorAll("ul")[0].className="hide";
+					document.querySelectorAll(".tree .show")[0].className="hide";
+				}
+				span.className="open";
+				ul.className="show";
+			}
+		}
+	</script>
+</head>
+<body>
+	<ul class="tree">
+		<li>
+			<span class="open" onclick="toggle(this)">考勤管理</span>
+			<ul class="show">
+				<li>日常出差</li>
+				<li>请假申请</li>
+				<li>加班/出差</li>
+			</ul>
+		</li>
+		<li>
+			<span class="closed" onclick="toggle(this)">信息中心</span>
+			<ul class="hide">
+				<li>通知公告</li>
+				<li>公司新闻</li>
+				<li>规章制度</li>
+			</ul>
+		</li>
+		<li>
+			<span class="closed" onclick="toggle(this)">协同办公</span>
+			<ul class="hide">
+				<li>公文流转</li>
+				<li>文件中心</li>
+				<li>公</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+<style type="text/css">
+	/**{
+		margin:0; 
+		padding:0;
+	}*/
+	.open{
+		cursor: pointer;
+	}
+	.closed{
+		cursor: pointer;
+	}
+	.show{
+		padding-left: 20px;
+		cursor: pointer;
+		list-style: none;
+	}
+	.hide{
+		display: none;
+	}
+  </style>
+</style>
+</html>
