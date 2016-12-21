@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>遍历元素树。若要遍历节点树，改children为childNodes</title>
+	<script type="text/javascript">
+		var blanks=[];
+		function getChildren(parent){
+			console.log(blanks.join("")+"|-"+(parent.nodeType!=3?parent.nodeName:
+										   parent.nodeValue));
+			if (parent.children.length>0) {
+				blanks.push("\t");
+				for (var i = 0,len=parent.children.length; i <len ; i++) {
+					//console.log(parent.children[i].nodeType==1?parent.children[i].nodeName:
+					//										  parent.children[i].nodeValue);
+					getChildren(parent.children[i]);
+				}
+				blanks.pop();
+			}
+		}
+		window.onload=function(){
+			getChildren(document);//.body.children[3]);
+		}
+	</script>
+</head>
+<body>
+	<span class="msg">Hello World!</span>
+	<ul>
+		<li>电影</li>
+		<li>综艺
+			<ul>
+				<li>跑男</li>
+				<li>爸爸</li>
+				<li>真男</li>
+			</ul>
+		</li>
+		<li>剧集</li>
+	</ul>
+</body>
+</html>
