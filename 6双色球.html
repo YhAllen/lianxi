@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>双色球</title>
+	<script type="text/javascript">
+		function doubleColorBall(){
+			var reds=[];
+	 		while(reds.length<6){
+	 			var n=parseInt(Math.random()*(33-1+1)+1);
+	 			if (reds.indexOf(n)==-1) {
+	 				reds.push(n);
+	 			}
+	 		}
+	 		var blue=parseInt(Math.random()*(16-1+1)+1);
+	 		alert(reds+"|"+blue);
+		}
+	</script>
+</head>
+<body>
+	<button onclick="doubleColorBall()">机选</button>
+</body>
+</html>

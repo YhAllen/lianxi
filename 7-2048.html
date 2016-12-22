@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>2048</title>
+	<script type="text/javascript">
+		var data=[
+			[2,4,2,4],
+			[4,2,0,2],
+			[2,4,2,4],
+			[4,2,4,2]
+		];
+		function isFull(){
+			for(var r=0;r<data.length;r++){
+				for(var c=0;c<data[r].length;c++){
+					if (data[r][c]==0) {
+						return false;
+					}
+				}
+			}
+			return true;
+		}
+		console.log(isFull());
+
+
+		function isGameOver(){
+			if (!isFull()) {
+				return false;
+			}
+			for (var r =0 ; r < 4; r++) {
+				for(var c=0;c<4;c++){
+					if(c!=3){
+						if(data[r][c]==data[r][c+1]){
+							return false;
+						}
+					}
+					if(r!=3){
+						if(data[r][c]==data[r+1][c]){
+							return false;
+						}
+					}
+				}
+			}
+			return true;
+		}
+		console.log(isGameOver());
+	</script>
+</head>
+<body>
+
+</body>
+</html>

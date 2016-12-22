@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+		/*去掉str前的空字符*/
+		var str=" \t Hello World \t ";
+		console.log(str);
+		function ltrim(str){
+			return str.replace(/^\s+/,"");
+		}
+		/*去掉str后的空字符*/
+		function rtrim(str){
+			return str.replace(/\s+$/,"");
+		}
+		/*去掉str前后的空字符*/
+		function trim(str){
+			return str.replace(/^\s+|\s+$/g,"");
+		}
+	</script>
+</head>
+<body>
+	<button onclick="console.log(ltrim(str))">去前空字符</button>
+	<button onclick="console.log(rtrim(str))">去后空字符</button>
+	<button onclick="console.log(trim(str))">去前后空字符</button>
+</body>
+</html>
