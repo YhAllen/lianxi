@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+		var arr=[1,2,3,4];
+		//if(!Array.prototype.indexOf!==undefined)只找是否存在或事先确定所找属性值不是null,0,"",NaN则可简写为：if(!Array.prototype.indexOf)
+		//if(!("indexOf" in Array.prototype))
+		if (!Array.prototype.hasOwnProperty("indexOf")) {
+			Array.prototype.indexOf=function(kword){
+				for(var i=0;i<this.length;i++){
+					if(arr[i]==kword){
+						return i;
+					}
+				}
+				return -1;
+			}
+		}
+		document.write(arr.indexOf("3"));
+
+		//重点
+		var a=2;
+		function fun(){
+			console.log(this.a);
+		}
+		var o={a:3,fun:fun};
+		var p={a:4};
+		o.fun();//3
+		(p.fun=o.fun)();//2;函数自调；this无主的调用默认对象是window!
+		p.fun();//4；     this和定义在哪无关，仅和调用时使用的当前对象有关
+	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+		var arr=[1,12,123,3,2,23];
+		function compare(a,b){
+			return a-b;
+		}
+		var compare=function(a,b){
+			return a-b;
+		}
+		//错误 var compare=new Function(a,b,return a-b);
+		var compare=new Function("a","b","return a-b");
+		arr.sort(compare);
+		console.log(arr);
+		//没有比较器函数对象，匿名函数回调
+		arr.sort(function(a,b){return a-b;});
+		console.log(arr);
+		arr.sort(function(a,b){return b-a;});
+		console.log(arr);
+	</script>
+	<script type="text/javascript">
+	//匿名函数自调
+		(function(){
+			alert("页面开始加载");
+		})();
+	</script>
+</head>
+<body>
+	<h1>Hello</h1>
+</body>
+<script type="text/javascript">
+	(function(){
+		alert("页面加载结束！");
+	})();
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+		//取号机
+		function outer(){
+			var n=1;
+			function inner(){
+				return n++;
+			}
+			return inner;
+		}
+		var getNum=outer();
+		console.log(getNum());
+		console.log(getNum());
+		var n=100;//假设有全局污染
+		console.log(getNum());
+		console.log(getNum());
+		console.log(getNum());
+	</script>
+</head>
+<body>
+
+</body>
+</html>
