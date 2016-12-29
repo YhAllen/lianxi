@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript">
+		// var lilei={
+		// 	sname:"Li Lei",
+		// 	age:12,
+		// 	intrSelf:function(){
+		// 		alert("I'm"+this.sname+",I'm"+this.age);//方法内访问当前对象自己的属性，必须用this.属性名，不能直接用属性名，会报错。因为当前方法的局部没有定义，对象外的全局也没有定义该属性
+		// 	}
+		// }
+		// var hmm={
+		// 	sname:"Han Meimei",
+		// 	age:11,
+		// 	intrSelf:function(){
+		// 		alert ("I'm"+this.sname+",I'm"+this.age);
+		// 	}
+		// }
+        //定义构造函数
+		function Student(sname,age){
+			this.sname=sname;
+			this.age=age;
+		}
+		Student.prototype.intrSelf=function(){
+				alert("I'm "+this.sname+",I'm"+this.age);
+			}
+		//用构造函数创建对象
+		var lilei=new Student("Li Lei",12);
+		lilei.
+		var hmm=new Student("Han Meimei",11);
+		Student.prototype.money=100;
+		console.log(lilei.money);
+		console.log(hmm.money);
+		Student.prototype.money-=20;
+		console.log(lilei.money);
+		console.log(hmm.money);
+	</script>
+	<style type="text/css">
+		#lilei{
+			width: 100px;
+			height: 100px;
+			border: 1px solid black;
+			background-color: red;
+		}
+		#hmm{
+			width: 100px;
+			height: 100px;
+			border:1px solid black;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<div id="lilei" onmouseover="lilei.intrSelf()"></div>
+	<div id="hmm" onmouseover="hmm.intrSelf()"></div>
+</body>
+</html>

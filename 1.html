@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>继承</title>
+	<script type="text/javascript">
+		function Student(sname,age){
+			this.sname=sname;
+			this.age=age;
+			if(!Student.prototype.intrSelf){
+				Student.prototype.intrSelf=function(){
+					alert("I'm"+this.sname+";I'm"+this.age);
+				}
+			}
+		}
+		var father={car:"BMW",balance:100000000};
+		//Student.prototype=father;
+
+		var lilei=new Student("Li Lei",19);
+		//var hmm=new Student("Han Meimei",18);
+
+		//Object.setPrototypeOf(hmm,father);
+		//==>hmm.__proto__=father;
+
+		var hmm=Object.create(father);
+		console.log(hmm);
+		//重写
+		hmm.intrSelf=function(){
+			alert("我是"+this.sname+"今年"+this.age);
+		}
+		hmm.toString=function(){
+			return "{sname:"+this.sname+",age:"+this.age+"}";
+		}
+		//扩展
+		hmm.sing=function(){
+			console.log("哈哈哈");
+		}
+		console.log(hmm.sing());
+		console.log(lilei.sing());
+		console.log(lilei.toString());
+		console.log(hmm.toString());
+		console.log(hmm.car);
+		console.log(lilei.car);
+	</script>
+</head>
+<body>
+	<button onclick="lilei.intrSelf()">李雷</button>
+	<button onclick="hmm.intrSelf()">韩梅梅</button>
+</body>
+</html>
