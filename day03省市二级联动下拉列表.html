@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>省市二级联动下拉列表</title>
+	<style type="text/css">
+		.hide{
+			display: none;
+		}
+	</style>
+	<script type="text/javascript">
+		var cities=[[],[{"name":'东城区',"value":101},{"name":'西城区',"value":102},{"name":'海淀区',"value":103},{"name":'朝阳区',"value":104}],[{"name":'河东区',"value":201},{"name":'河西区',"value":202},{"name":'南开区',"value":203}],[{"name":'石家庄市',"value":301},{"name":'廊坊市',"value":302},{"name":'保定市',"value":303},{"name":'唐山市',"value":303},{"name":'秦皇岛市',"value":304}]];
+		function loadCities(i) {
+			var selCities=document.querySelector("select[name='cities']");
+			if(cities[i].length==0){
+				selCities.className='hide';
+			}else{
+				selCities.innerHTML="";
+				var frag=document.createDocumentFragment();
+				for (var n = 0; n < cities[i].length; n++) {
+					var opt=document.createElement("option");
+					opt.innerHTML=cities[i][n].name;
+					opt.value=cities[i][n].value;
+					frag.appendChild(opt);
+				}
+				selCities.appendChild(frag);
+				selCities.className="";
+			}
+		}
+	</script>
+</head>
+<body>
+	<select name="provs" onchange="loadCities(this.selectedIndex)">
+		<option>-请选择-</option>
+		<option>北京市</option>
+		<option>天津市</option>
+		<option>河北省</option>
+	</select>
+	<select name="cities" class="hide"></select>
+</body>
+</html>
